@@ -142,8 +142,7 @@ extra_javascript:
 # =============================================================================
 nav:
   - Home: index.md
-  - Como usar este template: template/index.md
-
+  
   # A lista de entregas muda de edição para edição: acrescente ou remova itens
   # aqui e as pastas correspondentes em docs/.
   - Data: exercises/data/index.md
