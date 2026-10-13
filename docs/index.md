@@ -27,8 +27,8 @@ Quem responde por este repositório. Os **exercícios são individuais**; a equi
 
 ### Projeto — em equipe
 
-- [ ] EDA
-- [ ] Classificação **ou** Regressão
+- [x] [EDA](projects/eda/index.md)
+- [ ] [Classificação](projects/classification/index.md)
 - [ ] Generativo
 
 ## Checklist antes de cada entrega
