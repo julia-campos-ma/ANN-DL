@@ -73,15 +73,6 @@ $\mathbf{b}^{(1)} \equiv \mathbf{b}^h$, $b^{(2)} \equiv b^y$.
 **Folha 1A** — Passagem direta: $\mathbf{z}^{(1)}$, $\mathbf{h}^{(1)}$, $u^{(2)}$, $\hat{y}$ e $L$.
 ///
 
-| Quantidade | Conta | Valor |
-|---|---|---|
-| $z_1$ | $0.3(0.5) + (-0.1)(-0.2) + 0.1$ | 0,2700 |
-| $z_2$ | $0.2(0.5) + 0.4(-0.2) - 0.2$ | −0,1800 |
-| $h_1 = \tanh(z_1)$ | | 0,2636 |
-| $h_2 = \tanh(z_2)$ | | −0,1781 |
-| $u^{(2)}$ | $0.5(0.2636) + (-0.3)(-0.1781) + 0.2$ | 0,3852 |
-| $\hat{y} = \tanh(u^{(2)})$ | | 0,3672 |
-| $L = (y - \hat{y})^2$ | $(1 - 0.3672)^2$ | 0,4004 |
 
 ### B — Backward pass
 
@@ -89,17 +80,6 @@ $\mathbf{b}^{(1)} \equiv \mathbf{b}^h$, $b^{(2)} \equiv b^y$.
 /// caption
 **Folha 1B** — Passagem reversa pela regra da cadeia, da saída para a entrada.
 ///
-
-| Gradiente | Derivação | Valor |
-|---|---|---|
-| $\partial L/\partial \hat{y}$ | $-2(y - \hat{y})$ | −1,2655 |
-| $\partial L/\partial u^{(2)}$ | $\partial L/\partial \hat{y} \cdot (1 - \hat{y}^2) = -1.2655 \cdot 0.8651$ | −1,0948 |
-| $\partial L/\partial \mathbf{W}^{(2)}$ | $\partial L/\partial u^{(2)} \cdot \mathbf{h}^{(1)}$ | $[-0{,}2886;\ 0{,}1949]$ |
-| $\partial L/\partial b^{(2)}$ | $\partial L/\partial u^{(2)} \cdot 1$ | −1,0948 |
-| $\partial L/\partial \mathbf{h}^{(1)}$ | $\partial L/\partial u^{(2)} \cdot \mathbf{W}^{(2)}$ (pesos antigos) | $[-0{,}5474;\ 0{,}3284]$ |
-| $\partial L/\partial \mathbf{z}^{(1)}$ | $\partial L/\partial \mathbf{h}^{(1)} \odot (1 - \mathbf{h}^{(1)2}) = [-0.5474 \cdot 0.9305;\ 0.3284 \cdot 0.9683]$ | $[-0{,}5094;\ 0{,}3180]$ |
-| $\partial L/\partial \mathbf{W}^{(1)}$ | $\partial L/\partial z_i \cdot x_j$ | $\begin{bmatrix} -0{,}2547 & 0{,}1019 \\ 0{,}1590 & -0{,}0636 \end{bmatrix}$ |
-| $\partial L/\partial \mathbf{b}^{(1)}$ | $\partial L/\partial \mathbf{z}^{(1)} \cdot 1$ | $[-0{,}5094;\ 0{,}3180]$ |
 
 ### C — Parameter update
 
@@ -111,26 +91,7 @@ $\mathbf{b}^{(1)} \equiv \mathbf{b}^h$, $b^{(2)} \equiv b^y$.
 Regra: $\theta \leftarrow \theta - \eta\,\partial L/\partial \theta$, com $\eta = 0.3$. Todos os
 gradientes foram calculados antes de qualquer atualização.
 
-| Parâmetro | Antes | Conta | Depois |
-|---|---|---|---|
-| $W^{(1)}_{11}$ | 0,3 | $0.3 - 0.3(-0.2547)$ | 0,3764 |
-| $W^{(1)}_{12}$ | −0,1 | $-0.1 - 0.3(0.1019)$ | −0,1306 |
-| $W^{(1)}_{21}$ | 0,2 | $0.2 - 0.3(0.1590)$ | 0,1523 |
-| $W^{(1)}_{22}$ | 0,4 | $0.4 - 0.3(-0.0636)$ | 0,4191 |
-| $b^{(1)}_1$ | 0,1 | $0.1 - 0.3(-0.5094)$ | 0,2528 |
-| $b^{(1)}_2$ | −0,2 | $-0.2 - 0.3(0.3180)$ | −0,2954 |
-| $W^{(2)}_1$ | 0,5 | $0.5 - 0.3(-0.2886)$ | 0,5866 |
-| $W^{(2)}_2$ | −0,3 | $-0.3 - 0.3(0.1949)$ | −0,3585 |
-| $b^{(2)}$ | 0,2 | $0.2 - 0.3(-1.0948)$ | 0,5284 |
 
-O enunciado fala em "oito parâmetros", mas a rede 2-2-1 tem nove escalares
-($4 + 2 + 2 + 1$); a tabela atualiza todos.
-
-**Perda numa segunda passagem: desce.** Refazendo a passagem direta com os parâmetros novos,
-$\hat{y}$ sobe de 0,3672 para **0,7112** e a perda cai de 0,4004 para **0,0834**. Ao subtrair
-$\eta$ vezes o gradiente, cada parâmetro anda no sentido em que a perda diminui: todos os
-ajustes empurram $u^{(2)}$ para cima e aproximam $\hat{y}$ de $y = 1$. A queda é garantida para
-$\eta$ pequeno; com $\eta$ grande demais, o passo poderia ultrapassar o mínimo e a perda subir.
 
 ## Exercise 2
 
