@@ -153,25 +153,25 @@ GOODFELLOW; BENGIO; COURVILLE, 2016, cap. 6). Na saída, $\dfrac{\partial L}{\pa
 então os termos $\hat{y}_n(1 - \hat{y}_n)$ se cancelam:
 
 $$
-\boldsymbol{\delta}^{(2)} \equiv \frac{\partial L}{\partial \mathbf{u}^{(2)}} = \frac{1}{N}(\hat{\mathbf{y}} - \mathbf{y}).
+\delta^{(2)} \equiv \frac{\partial L}{\partial \mathbf{u}^{(2)}} = \frac{1}{N}(\hat{\mathbf{y}} - \mathbf{y}).
 $$
 
 Daí, pela regra da cadeia (usando $\tanh'(u) = 1 - \tanh^2(u)$):
 
 $$
-\frac{\partial L}{\partial \mathbf{W}^{(2)}} = \mathbf{H}^{(1)\top}\boldsymbol{\delta}^{(2)}, \quad
+\frac{\partial L}{\partial \mathbf{W}^{(2)}} = \mathbf{H}^{(1)\top}\delta^{(2)}, \quad
 \frac{\partial L}{\partial b^{(2)}} = \sum_n \delta^{(2)}_n, \quad
-\boldsymbol{\delta}^{(1)} = \left(\boldsymbol{\delta}^{(2)}\mathbf{W}^{(2)\top}\right) \odot \left(1 - \mathbf{H}^{(1)} \odot \mathbf{H}^{(1)}\right),
+\delta^{(1)} = \left(\delta^{(2)}\mathbf{W}^{(2)\top}\right) \odot \left(1 - \mathbf{H}^{(1)} \odot \mathbf{H}^{(1)}\right),
 $$
 
 $$
-\frac{\partial L}{\partial \mathbf{W}^{(1)}} = \mathbf{X}^{\top}\boldsymbol{\delta}^{(1)}, \qquad
-\frac{\partial L}{\partial \mathbf{b}^{(1)}} = \sum_n \boldsymbol{\delta}^{(1)}_n .
+\frac{\partial L}{\partial \mathbf{W}^{(1)}} = \mathbf{X}^{\top}\delta^{(1)}, \qquad
+\frac{\partial L}{\partial \mathbf{b}^{(1)}} = \sum_n \delta^{(1)}_n .
 $$
 
 **Atualização.** $\theta \leftarrow \theta - \eta\,\partial L/\partial\theta$ para os quatro
 blocos de parâmetros. A implementação generaliza essas fórmulas para qualquer número de camadas
-(o laço da `backward` repete o passo $\boldsymbol{\delta}^{(l-1)} = (\boldsymbol{\delta}^{(l)}\mathbf{W}^{(l)\top}) \odot (1 - \mathbf{H}^{(l-1)2})$),
+(o laço da `backward` repete o passo $\delta^{(l-1)} = (\delta^{(l)}\mathbf{W}^{(l)\top}) \odot (1 - \mathbf{H}^{(l-1)2})$),
 e os tamanhos das camadas são argumentos do construtor.
 
 O módulo com o MLP (comentado):
@@ -297,7 +297,7 @@ $$
 = \hat{y}_k - y_k,
 $$
 
-porque $\sum_j y_j = 1$ (one-hot). Em lote: $\boldsymbol{\delta}^{(L)} = \partial L/\partial \mathbf{U}^{(L)} = (\hat{\mathbf{Y}} - \mathbf{Y})/N$,
+porque $\sum_j y_j = 1$ (one-hot). Em lote: $\delta^{(L)} = \partial L/\partial \mathbf{U}^{(L)} = (\hat{\mathbf{Y}} - \mathbf{Y})/N$,
 **a mesma expressão** do par sigmoide + BCE do Ex. 2. Assim como lá, a derivada da ativação de
 saída se cancela com a derivada da perda; daí em diante a passagem reversa pelas camadas ocultas
 é idêntica.
