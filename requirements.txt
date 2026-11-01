@@ -19,3 +19,7 @@ matplotlib==3.11.2
 scikit-learn==1.7.2
 umap-learn==0.5.12
 numba==0.67.0
+# Exercício 4 (VAE): PyTorch e SciPy, nas versões usadas para gerar os números e as figuras.
+torch==2.14.1
+torchvision==0.29.1
+scipy==1.18.1

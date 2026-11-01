@@ -3,3 +3,6 @@ env/
 .cache/
 .vscode/
 target/
+# VAE: dados do MNIST (baixados pelo torchvision) e modelos treinados
+data/MNIST/
+docs/exercises/vae/checkpoints/
