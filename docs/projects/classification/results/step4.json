@@ -1,0 +1,767 @@
+{
+  "regularization": [
+    {
+      "regularização": "nenhuma",
+      "seed": 42,
+      "melhor época": 11,
+      "val loss (melhor)": 0.40376071244668643,
+      "val AP (melhor)": 0.8359780340984211,
+      "val loss (época 60)": 0.5126294377487692,
+      "val AP (época 60)": 0.8202074442433327,
+      "train loss (época 60)": 0.17424438768512313,
+      "gap (época 60)": 0.3383850500636461
+    },
+    {
+      "regularização": "nenhuma",
+      "seed": 43,
+      "melhor época": 4,
+      "val loss (melhor)": 0.39474762209025904,
+      "val AP (melhor)": 0.8352794664796354,
+      "val loss (época 60)": 0.5732274417591504,
+      "val AP (época 60)": 0.8136157588323901,
+      "train loss (época 60)": 0.17959589432966988,
+      "gap (época 60)": 0.39363154742948053
+    },
+    {
+      "regularização": "nenhuma",
+      "seed": 44,
+      "melhor época": 1,
+      "val loss (melhor)": 0.41170624057397776,
+      "val AP (melhor)": 0.8280017338665177,
+      "val loss (época 60)": 0.5903250723343638,
+      "val AP (época 60)": 0.8131642869826503,
+      "train loss (época 60)": 0.17488389372490387,
+      "gap (época 60)": 0.41544117860945995
+    },
+    {
+      "regularização": "weight decay (AdamW, λ = 0,05)",
+      "seed": 42,
+      "melhor época": 11,
+      "val loss (melhor)": 0.40180988257825595,
+      "val AP (melhor)": 0.8363655579322744,
+      "val loss (época 60)": 0.4862562055498864,
+      "val AP (época 60)": 0.8245978296670398,
+      "train loss (época 60)": 0.1785702433560179,
+      "gap (época 60)": 0.3076859621938685
+    },
+    {
+      "regularização": "weight decay (AdamW, λ = 0,05)",
+      "seed": 43,
+      "melhor época": 4,
+      "val loss (melhor)": 0.39450892840703394,
+      "val AP (melhor)": 0.8353086637888101,
+      "val loss (época 60)": 0.5351934132306778,
+      "val AP (época 60)": 0.8180183962538623,
+      "train loss (época 60)": 0.18449683258193794,
+      "gap (época 60)": 0.3506965806487399
+    },
+    {
+      "regularização": "weight decay (AdamW, λ = 0,05)",
+      "seed": 44,
+      "melhor época": 1,
+      "val loss (melhor)": 0.4116662419927399,
+      "val AP (melhor)": 0.8280307431696117,
+      "val loss (época 60)": 0.5693654769301302,
+      "val AP (época 60)": 0.8150541490550125,
+      "train loss (época 60)": 0.18152663624331455,
+      "gap (época 60)": 0.3878388406868156
+    },
+    {
+      "regularização": "dropout (p = 0,3)",
+      "seed": 42,
+      "melhor época": 6,
+      "val loss (melhor)": 0.40293120778492264,
+      "val AP (melhor)": 0.8368965525654808,
+      "val loss (época 60)": 0.47397320800218656,
+      "val AP (época 60)": 0.8287498846141814,
+      "train loss (época 60)": 0.20402080789840896,
+      "gap (época 60)": 0.26995240010377763
+    },
+    {
+      "regularização": "dropout (p = 0,3)",
+      "seed": 43,
+      "melhor época": 4,
+      "val loss (melhor)": 0.39799492319454083,
+      "val AP (melhor)": 0.836224971951547,
+      "val loss (época 60)": 0.4790661529032762,
+      "val AP (época 60)": 0.8322752628093241,
+      "train loss (época 60)": 0.20752381665618472,
+      "gap (época 60)": 0.27154233624709145
+    },
+    {
+      "regularização": "dropout (p = 0,3)",
+      "seed": 44,
+      "melhor época": 5,
+      "val loss (melhor)": 0.40848559240427296,
+      "val AP (melhor)": 0.834789742319684,
+      "val loss (época 60)": 0.4779948123377681,
+      "val AP (época 60)": 0.8260438390298035,
+      "train loss (época 60)": 0.20431939876766636,
+      "gap (época 60)": 0.2736754135701017
+    },
+    {
+      "regularização": "dropout + weight decay",
+      "seed": 42,
+      "melhor época": 6,
+      "val loss (melhor)": 0.40295156668877496,
+      "val AP (melhor)": 0.8370419887789851,
+      "val loss (época 60)": 0.4683275391596755,
+      "val AP (época 60)": 0.830277673396057,
+      "train loss (época 60)": 0.20363464973054893,
+      "gap (época 60)": 0.2646928894291266
+    },
+    {
+      "regularização": "dropout + weight decay",
+      "seed": 43,
+      "melhor época": 4,
+      "val loss (melhor)": 0.3980558624539286,
+      "val AP (melhor)": 0.836315698707695,
+      "val loss (época 60)": 0.4747207400261126,
+      "val AP (época 60)": 0.8330887832372678,
+      "train loss (época 60)": 0.2076397997348762,
+      "gap (época 60)": 0.2670809402912364
+    },
+    {
+      "regularização": "dropout + weight decay",
+      "seed": 44,
+      "melhor época": 5,
+      "val loss (melhor)": 0.4081142861468262,
+      "val AP (melhor)": 0.835033528869652,
+      "val loss (época 60)": 0.47575712298877426,
+      "val AP (época 60)": 0.8262994835525617,
+      "train loss (época 60)": 0.20415853843096443,
+      "gap (época 60)": 0.27159858455780983
+    }
+  ],
+  "regularization_summary": [
+    {
+      "regularização": "nenhuma",
+      "melhor época mean": 5.333333333333333,
+      "melhor época std": 5.131601439446884,
+      "val loss (melhor) mean": 0.40340485837030776,
+      "val loss (melhor) std": 0.008484907737379227,
+      "val AP (melhor) mean": 0.8330864114815247,
+      "val AP (melhor) std": 0.004417290913661856,
+      "val loss (época 60) mean": 0.5587273172807611,
+      "val loss (época 60) std": 0.0408269900412846,
+      "val AP (época 60) mean": 0.8156624966861243,
+      "val AP (época 60) std": 0.003942507822580403,
+      "train loss (época 60) mean": 0.1762413919132323,
+      "train loss (época 60) std": 0.0029226284129432577,
+      "gap (época 60) mean": 0.38248592536752885,
+      "gap (época 60) std": 0.03971876640806138
+    },
+    {
+      "regularização": "weight decay (AdamW, λ = 0,05)",
+      "melhor época mean": 5.333333333333333,
+      "melhor época std": 5.131601439446884,
+      "val loss (melhor) mean": 0.40266168432600996,
+      "val loss (melhor) std": 0.008610315152923848,
+      "val AP (melhor) mean": 0.8332349882968987,
+      "val AP (melhor) std": 0.004537882966350101,
+      "val loss (época 60) mean": 0.5302716985702315,
+      "val loss (época 60) std": 0.04177266096070361,
+      "val AP (época 60) mean": 0.8192234583253049,
+      "val AP (época 60) std": 0.004884628015838905,
+      "train loss (época 60) mean": 0.1815312373937568,
+      "train loss (época 60) std": 0.002963297292061147,
+      "gap (época 60) mean": 0.34874046117647467,
+      "gap (época 60) std": 0.040112227377928245
+    },
+    {
+      "regularização": "dropout (p = 0,3)",
+      "melhor época mean": 5.0,
+      "melhor época std": 1.0,
+      "val loss (melhor) mean": 0.40313724112791216,
+      "val loss (melhor) std": 0.005248368548494181,
+      "val AP (melhor) mean": 0.835970422278904,
+      "val AP (melhor) std": 0.001076224421220103,
+      "val loss (época 60) mean": 0.47701139108107693,
+      "val loss (época 60) std": 0.0026851182408727543,
+      "val AP (época 60) mean": 0.8290229954844364,
+      "val AP (época 60) std": 0.003124676421740659,
+      "train loss (época 60) mean": 0.2052880077740867,
+      "train loss (época 60) std": 0.0019420144553407258,
+      "gap (época 60) mean": 0.27172338330699025,
+      "gap (época 60) std": 0.0018680981896118725
+    },
+    {
+      "regularização": "dropout + weight decay",
+      "melhor época mean": 5.0,
+      "melhor época std": 1.0,
+      "val loss (melhor) mean": 0.4030405717631766,
+      "val loss (melhor) std": 0.005029802503469985,
+      "val AP (melhor) mean": 0.8361304054521107,
+      "val AP (melhor) std": 0.0010169700068209243,
+      "val loss (época 60) mean": 0.4729351340581875,
+      "val loss (época 60) std": 0.004023800501133052,
+      "val AP (época 60) mean": 0.8298886467286288,
+      "val AP (época 60) std": 0.0034113272876060124,
+      "train loss (época 60) mean": 0.20514432929879653,
+      "train loss (época 60) std": 0.0021769575938948727,
+      "gap (época 60) mean": 0.26779080475939093,
+      "gap (época 60) std": 0.0035071479830399354
+    }
+  ],
+  "search": [
+    {
+      "id": 13,
+      "hidden": [
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.843271465999977,
+      "val_loss": 0.3964629420512907,
+      "best_epoch": 22,
+      "stopped": 32,
+      "params": 11329,
+      "train_loss": 0.2663132620595934
+    },
+    {
+      "id": 7,
+      "hidden": [
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.001,
+      "lr": 0.0003,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8412409160686491,
+      "val_loss": 0.39800256937102296,
+      "best_epoch": 40,
+      "stopped": 50,
+      "params": 22657,
+      "train_loss": 0.25651348053558404
+    },
+    {
+      "id": 22,
+      "hidden": [
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.1,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8404810839124915,
+      "val_loss": 0.3882102147189562,
+      "best_epoch": 58,
+      "stopped": 68,
+      "params": 22657,
+      "train_loss": 0.2697980688694081
+    },
+    {
+      "id": 11,
+      "hidden": [
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.840063001688745,
+      "val_loss": 0.3847599734782523,
+      "best_epoch": 11,
+      "stopped": 21,
+      "params": 11329,
+      "train_loss": 0.2883523489229657
+    },
+    {
+      "id": 1,
+      "hidden": [
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8398601662324606,
+      "val_loss": 0.3851272648537335,
+      "best_epoch": 38,
+      "stopped": 48,
+      "params": 11329,
+      "train_loss": 0.2935979050554055
+    },
+    {
+      "id": 15,
+      "hidden": [
+        128,
+        64
+      ],
+      "dropout": 0.5,
+      "weight_decay": 0.1,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8398150718237746,
+      "val_loss": 0.39737776934794633,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 30849,
+      "train_loss": 0.27642562237796986
+    },
+    {
+      "id": 21,
+      "hidden": [
+        64
+      ],
+      "dropout": 0.5,
+      "weight_decay": 0.0,
+      "lr": 0.0001,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8390894280325295,
+      "val_loss": 0.39710991023235376,
+      "best_epoch": 76,
+      "stopped": 86,
+      "params": 11329,
+      "train_loss": 0.29168289073485015
+    },
+    {
+      "id": 8,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.01,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8388997835984547,
+      "val_loss": 0.3935821267888473,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 86273,
+      "train_loss": 0.2784694042114075
+    },
+    {
+      "id": 18,
+      "hidden": [
+        512,
+        256
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8386500581174813,
+      "val_loss": 0.3894589900520942,
+      "best_epoch": 3,
+      "stopped": 13,
+      "params": 221697,
+      "train_loss": 0.2799864107307559
+    },
+    {
+      "id": 16,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8384601553472605,
+      "val_loss": 0.3991705739736632,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 86273,
+      "train_loss": 0.2610317824651272
+    },
+    {
+      "id": 6,
+      "hidden": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8380257828371243,
+      "val_loss": 0.40406604166291604,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 30849,
+      "train_loss": 0.2647953716702065
+    },
+    {
+      "id": 14,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "weight_decay": 0.001,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.837463119423516,
+      "val_loss": 0.401304822573927,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 86273,
+      "train_loss": 0.2612540380829859
+    },
+    {
+      "id": 12,
+      "hidden": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.1,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8373603647429746,
+      "val_loss": 0.3908228544061616,
+      "best_epoch": 18,
+      "stopped": 28,
+      "params": 30849,
+      "train_loss": 0.28843176248036045
+    },
+    {
+      "id": 2,
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8370157903743631,
+      "val_loss": 0.3981369816096925,
+      "best_epoch": 4,
+      "stopped": 14,
+      "params": 78081,
+      "train_loss": 0.26454330669313747
+    },
+    {
+      "id": 17,
+      "hidden": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.8369174537247347,
+      "val_loss": 0.40286932873628495,
+      "best_epoch": 6,
+      "stopped": 16,
+      "params": 30849,
+      "train_loss": 0.2764984101183158
+    },
+    {
+      "id": 20,
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.001,
+      "lr": 0.001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8367677002228076,
+      "val_loss": 0.39846964462822093,
+      "best_epoch": 4,
+      "stopped": 14,
+      "params": 78081,
+      "train_loss": 0.2645257680487353
+    },
+    {
+      "id": 5,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.01,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.8349686838160449,
+      "val_loss": 0.40370156006549834,
+      "best_epoch": 11,
+      "stopped": 21,
+      "params": 86273,
+      "train_loss": 0.25466635577540636
+    },
+    {
+      "id": 9,
+      "hidden": [
+        512,
+        256
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.001,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8347453583727229,
+      "val_loss": 0.39479272877769195,
+      "best_epoch": 7,
+      "stopped": 17,
+      "params": 221697,
+      "train_loss": 0.27572511446742604
+    },
+    {
+      "id": 24,
+      "hidden": [
+        512,
+        256
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.0,
+      "lr": 0.0001,
+      "batch_size": 1024,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8328266107143241,
+      "val_loss": 0.39640501075681495,
+      "best_epoch": 11,
+      "stopped": 21,
+      "params": 221697,
+      "train_loss": 0.2847902580248598
+    },
+    {
+      "id": 4,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap": 0.8327453629848831,
+      "val_loss": 0.3947150459261581,
+      "best_epoch": 3,
+      "stopped": 13,
+      "params": 86273,
+      "train_loss": 0.3061428802449329
+    },
+    {
+      "id": 19,
+      "hidden": [
+        128,
+        64
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.1,
+      "lr": 0.0003,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap": 0.8319246638048884,
+      "val_loss": 0.4085016838977558,
+      "best_epoch": 5,
+      "stopped": 15,
+      "params": 30849,
+      "train_loss": 0.30443243531880765
+    },
+    {
+      "id": 10,
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.5,
+      "weight_decay": 0.001,
+      "lr": 0.001,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.8318746893849867,
+      "val_loss": 0.39777354848463525,
+      "best_epoch": 1,
+      "stopped": 11,
+      "params": 78081,
+      "train_loss": 0.30521351736745916
+    },
+    {
+      "id": 3,
+      "hidden": [
+        512,
+        256
+      ],
+      "dropout": 0.5,
+      "weight_decay": 0.0,
+      "lr": 0.001,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.831744505199208,
+      "val_loss": 0.4014932407288448,
+      "best_epoch": 1,
+      "stopped": 11,
+      "params": 221697,
+      "train_loss": 0.29229550891870104
+    },
+    {
+      "id": 23,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "weight_decay": 0.0,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap": 0.8258975636231243,
+      "val_loss": 0.4109511518773077,
+      "best_epoch": 1,
+      "stopped": 11,
+      "params": 86273,
+      "train_loss": 0.3148619076742531
+    }
+  ],
+  "top": [
+    {
+      "id": 13,
+      "hidden": [
+        64
+      ],
+      "dropout": 0.3,
+      "weight_decay": 0.0,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "pos_weight": "1",
+      "val_ap_mean": 0.8408631532034496,
+      "val_ap_std": 0.003133837720875329,
+      "val_ap_seeds": [
+        0.843271465999977,
+        0.8373199882617337,
+        0.8419980053486384
+      ]
+    },
+    {
+      "id": 22,
+      "hidden": [
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.1,
+      "lr": 0.0001,
+      "batch_size": 256,
+      "pos_weight": "n_neg/n_pos",
+      "val_ap_mean": 0.8401375382697959,
+      "val_ap_std": 0.0019451689966311074,
+      "val_ap_seeds": [
+        0.8404810839124915,
+        0.8418880465722679,
+        0.8380434843246285
+      ]
+    },
+    {
+      "id": 7,
+      "hidden": [
+        128
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.001,
+      "lr": 0.0003,
+      "batch_size": 1024,
+      "pos_weight": "1",
+      "val_ap_mean": 0.8376809150876682,
+      "val_ap_std": 0.005885080792421311,
+      "val_ap_seeds": [
+        0.8412409160686491,
+        0.840913795075993,
+        0.8308880341183624
+      ]
+    }
+  ],
+  "ablation": [
+    {
+      "features": "todas as 26 features",
+      "drop": [],
+      "n_inputs": 175,
+      "val_ap_mean": 0.8408631532034496,
+      "val_ap_std": 0.003133837720875329,
+      "val_ap_seeds": [
+        0.843271465999977,
+        0.8373199882617337,
+        0.8419980053486384
+      ]
+    },
+    {
+      "features": "sem previous_cancellations",
+      "drop": [
+        "previous_cancellations"
+      ],
+      "n_inputs": 174,
+      "val_ap_mean": 0.839463098008792,
+      "val_ap_std": 0.001350220476275385,
+      "val_ap_seeds": [
+        0.8388400741179215,
+        0.8385368796693484,
+        0.8410123402391064
+      ]
+    },
+    {
+      "features": "sem booking_changes",
+      "drop": [
+        "booking_changes"
+      ],
+      "n_inputs": 174,
+      "val_ap_mean": 0.8354630330183456,
+      "val_ap_std": 0.0013990849631977343,
+      "val_ap_seeds": [
+        0.834436503771938,
+        0.8348959657416462,
+        0.8370566295414525
+      ]
+    },
+    {
+      "features": "sem as duas",
+      "drop": [
+        "previous_cancellations",
+        "booking_changes"
+      ],
+      "n_inputs": 173,
+      "val_ap_mean": 0.8350279483906315,
+      "val_ap_std": 0.0027937639008250963,
+      "val_ap_seeds": [
+        0.8318029695351271,
+        0.8365715156179296,
+        0.8367093600188379
+      ]
+    }
+  ],
+  "chosen": {
+    "hidden": [
+      64
+    ],
+    "dropout": 0.3,
+    "weight_decay": 0.0,
+    "lr": 0.0003,
+    "batch_size": 256,
+    "pos_weight": "1",
+    "drop": [
+      "previous_cancellations",
+      "booking_changes"
+    ]
+  }
+}

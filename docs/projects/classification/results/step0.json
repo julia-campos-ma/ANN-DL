@@ -1,0 +1,51 @@
+{
+  "splits": [
+    {
+      "split": "train (fit)",
+      "rows": 76098,
+      "share": 0.6383524872074491,
+      "first": "2015-07-01",
+      "last": "2016-12-09",
+      "cancel_rate": 0.3626507923992746,
+      "non_refund": 0.13641620016294778,
+      "prt": 0.4565954427185997,
+      "prev_cancel_gt0": 0.08115850613682357
+    },
+    {
+      "split": "validation",
+      "rows": 19094,
+      "share": 0.16017112658334032,
+      "first": "2016-12-10",
+      "last": "2017-04-21",
+      "cancel_rate": 0.35393317272441605,
+      "non_refund": 0.09709856499423902,
+      "prt": 0.3442442652142034,
+      "prev_cancel_gt0": 0.008379595684508223
+    },
+    {
+      "split": "test",
+      "rows": 24018,
+      "share": 0.20147638620921063,
+      "first": "2017-04-22",
+      "last": "2017-08-31",
+      "cancel_rate": 0.4098592722125073,
+      "non_refund": 0.09792655508368724,
+      "prt": 0.2982762927804147,
+      "prev_cancel_gt0": 0.005953867932384046
+    }
+  ],
+  "cut_val": "2016-12-10",
+  "cut_test": "2017-04-22",
+  "n_features": 175,
+  "dup_val_in_fit": 0,
+  "val_unseen_levels": {
+    "country": 10,
+    "agent": 462,
+    "company": 312
+  },
+  "high_card_kept": {
+    "country": 32,
+    "agent": 68,
+    "company": 9
+  }
+}

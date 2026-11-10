@@ -6,3 +6,7 @@ target/
 # VAE: dados do MNIST (baixados pelo torchvision) e modelos treinados
 data/MNIST/
 docs/exercises/vae/checkpoints/
+# Classificação: previsões de teste e pesos da rede (regenerados por step5_test.py)
+docs/projects/classification/results/*.npz
+docs/projects/classification/results/*.pt
+__pycache__/

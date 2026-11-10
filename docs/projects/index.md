@@ -61,7 +61,7 @@ vazam o desfecho e deriva temporal na taxa de cancelamento — tudo documentado 
 ## Status
 
 - [x] **1. EDA**
-- [ ] **2. Classificação**
+- [x] **2. Classificação**
 - [ ] **3. Generativo**
 
 ## Registro de decisões
@@ -76,3 +76,8 @@ vazam o desfecho e deriva temporal na taxa de cancelamento — tudo documentado 
 | 2026-10-06 | `booking_changes` mantida, com ressalva | Acumula alterações até o check-in ou cancelamento; a entrega de classificação mede o modelo com e sem ela |
 | 2026-10-06 | `previous_cancellations` mantida, mas tratada como o principal risco | 85,7% das linhas com valor > 0 não são de hóspede repetido e a taxa de cancelamento delas cai de 99% (2015) para 17% (2017): parece contar os quartos cancelados de um mesmo bloco de grupo. A classificação treina com e sem ela |
 | 2026-10-06 | `country`: `CN` fundido em `CHN`; `adr` recortada mas **não** logaritmizada | Mesmo país em dois códigos ISO; o log de `adr` transformava as 1,7% de diárias zero num pico a seis desvios da média |
+| 2026-11-10 | Validação **temporal** dentro do treino: últimos 20% das chegadas (corte em 2016-12-10); pipeline da EDA ajustado só no treino restante (175 colunas) | Mesma lógica do split da EDA; sem cópias de grupo entre treino e validação; a validação já reproduz a deriva de Non Refund, PRT e `previous_cancellations` |
+| 2026-11-10 | Métrica principal: *average precision*; sucesso = MLP ≥ logística + 0,01 de AP no teste (5 sementes, ganho > 2 dp); limiar pelo custo $C_{FP}=2$, $C_{FN}=1$ escolhido na validação | Fixados antes de qualquer treino; o hotel ordena reservas por risco e realocar um hóspede custa mais que um quarto vazio |
+| 2026-11-10 | Rede final: 173 → 64 (ReLU, *dropout* 0,3) → 1; Adam lr 3e-4, *batch* 256, *early stopping* | Melhor média de 3 sementes entre as 3 primeiras de 24 configurações; redes menores generalizaram melhor para o período seguinte |
+| 2026-11-10 | `previous_cancellations` e `booking_changes` **removidas** do modelo | Ablação na validação: nenhuma das duas perdia mais que 2 dp ao sair (regra fixada antes); a primeira é artefato não estacionário e a segunda vaza a contagem final |
+| 2026-11-10 | Resultado no teste: AP 0,8283 ± 0,0023 contra 0,8207 da logística e 0,8277 do *boosting*; **critério não atingido** (+0,0076) | Teste lido uma única vez, depois de todas as escolhas |
