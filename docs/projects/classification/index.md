@@ -5,7 +5,7 @@ dataset: https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
 team:
   - Tiago Liberman
   - Júlia Campos
-ai_use: "Claude (Anthropic) foi usado para escrever a primeira versão dos sete scripts de code/ e um rascunho do texto e das tabelas desta página, a partir da EDA e das aulas da disciplina. A equipe leu, executou e conferiu todo o código. Os números relatados vêm da execução local dos scripts deste repositório, e as decisões e conclusões foram discutidas, revisadas e reescritas pela equipe, que responde por cada uma delas."
+ai_use: "Claude (Anthropic) foi usado para escrever a primeira versão dos nove arquivos de code/ e um rascunho do texto e das tabelas desta página, a partir da EDA e das aulas da disciplina. A equipe leu, executou e conferiu todo o código. Os números relatados vêm da execução local dos scripts deste repositório, e as decisões e conclusões foram discutidas, revisadas e reescritas pela equipe, que responde por cada uma delas."
 ---
 
 # 2. Classificação — Previsão de cancelamento
@@ -60,7 +60,7 @@ rede consegue decorar no passado não vale no futuro, e isso aparece em todos os
 
 ## Abordagem
 
-O código está em sete arquivos em `code/`, rodados a partir da raiz do repositório. Os resultados
+O código está em nove arquivos em `code/`: dois módulos compartilhados e sete scripts, um por passo, rodados a partir da raiz do repositório. Os resultados
 numéricos de cada passo ficam em `results/stepN.json`.
 
 | Arquivo | Conteúdo |
@@ -131,19 +131,25 @@ inverno de 2016–2017, com taxas mensais entre 32,6% e 34,8% de dezembro a mar�
 pelo split, tem 42,3%), e o teste começa nos meses de maior cancelamento da série (43%–44%).
 ///
 
-### Pendências da EDA resolvidas aqui
+### Correções da EDA
 
-A EDA terminou com uma tabela de riscos, cada um com um plano para esta entrega. A tabela abaixo
-mostra onde cada plano foi executado.
+**Até a data desta entrega (13/11/2026), a correção da EDA não havia sido divulgada, então não há
+comentários do professor a incorporar.** O pipeline da EDA é reaproveitado sem alteração e sem
+vazamento: ele é ajustado só no treino, e validação e teste apenas passam por `transform`. No
+lugar da correção, esta entrega executa o plano que a própria EDA deixou para cada risco que ela
+identificou (seção 5 da EDA). A tabela abaixo mostra onde cada plano foi executado.
 
 | Risco deixado pela EDA | O que esta entrega fez | Onde |
 |------------------------|------------------------|------|
-| Deriva entre treino e teste | Validação **temporal** dentro do treino, sem k-fold aleatório; teste não recentrado; métricas por mês de chegada | Passo 0, passo 6 |
+| Deriva entre treino e teste | Validação **temporal** dentro do treino, sem k-fold aleatório; teste não recentrado; métricas por mês de chegada. A EDA sugeria o último trimestre; usamos os últimos 20% (pouco mais de 4 meses), a mesma regra do teste, para ter 19 mil linhas de validação | Passo 0, passo 6 |
 | `previous_cancellations` como artefato | Ablação na validação: rede com e sem a feature, com regra de decisão fixada antes | Passo 4C |
 | `booking_changes` acumula até o check-in | Mesma ablação | Passo 4C |
 | `Non Refund` e `PRT` dominam | Métricas dentro de `No Deposit` (87% das reservas) e por país | Passo 6 |
 | Duplicatas de grupo | Métricas de teste também nas linhas sem cópia | Passo 6 |
+| Níveis raros e novos em `agent`, `country` e `company` | Tratados pelo `infrequent` do pipeline. Sobreajuste nas colunas *one-hot* foi combatido com *dropout* e redes menores (passo 4), sem precisar subir `min_frequency` | Passo 0, passo 4 |
 | Contagens quase binárias com \|z\| até 14 | Avaliar *flags* só se as curvas oscilassem. A perda de treino desce sem oscilar (Figura 4), então as contagens ficaram como estão | Passo 3 |
+| 715 reservas com zero noites | Criar um *flag* só se o modelo as errasse sistematicamente. No teste, são 41 reservas com erro de 2,4%, contra 25,6% no geral, então não foi preciso | Passo 6 |
+| Pesos $1/\text{tamanho do bloco}$ para duplicatas | **Não testado**; registrado nas limitações | Passo 7 |
 
 ### Métrica principal e critério de sucesso
 
@@ -163,6 +169,10 @@ custo.
 regressão logística (o baseline linear, no mesmo pipeline) em **pelo menos 0,01**, e esse ganho
 precisa ser **maior que 2 desvios-padrão entre sementes**. O critério é relativo porque a
 pergunta do enunciado é relativa ("a rede aprende algo que modelos mais simples não aprendem?").
+O exemplo do enunciado compara com o **melhor** baseline. Escolhemos o **linear** porque a pergunta
+é sobre o que a não linearidade acrescenta: o *gradient boosting* é ele mesmo um modelo não
+linear, e a comparação com ele mede outra coisa, a saber, qual não linearidade funciona melhor.
+O passo 5 reporta também a comparação com o *boosting*.
 O 0,01 é o menor ganho que justificaria trocar um modelo de coeficientes legíveis por uma rede
 mais cara de manter e explicar. O teste dos 2 desvios garante que o ganho não é sorte da
 semente.
@@ -577,9 +587,15 @@ modelo acerta.
 **Não.** A AP média da rede é **0,8283 ± 0,0023**, contra **0,8207** da regressão logística: ganho
 de **+0,0076**. O ganho é real, porque supera 2 desvios-padrão (0,0046) e as 5 sementes ficam
 todas acima da logística (de 0,8262 a 0,8311). Mas ele fica **abaixo do 0,01** que fixamos como
-o mínimo para justificar a rede. Contra o *boosting* (0,8277), a diferença é +0,0006, dentro do
-ruído: **a rede empata com o *boosting*.** A média das probabilidades das 5 sementes, como
-conjunto, chega a 0,8291, ainda abaixo do critério.
+o mínimo para justificar a rede. A média das probabilidades das 5 sementes, como conjunto, chega a 0,8291, ainda abaixo do
+critério.
+
+**Na versão mais exigente do enunciado, contra o melhor baseline, o resultado é o mesmo.** O
+melhor baseline na validação é o *gradient boosting*, e contra ele (0,8277) o ganho é de
++0,0006, dentro do ruído: **a rede empata com o *boosting*.** Essa comparação foi acrescentada na
+revisão, depois de lido o teste, apenas como verificação: ela não altera nenhuma escolha e não
+substitui o critério fixado no passo 0. Pelas duas réguas, a conclusão é a mesma: a rede não
+justifica a troca.
 
 Quatro observações sobre quanto confiar nesses números:
 
@@ -714,18 +730,20 @@ A comparação é com a associação de cada feature com o alvo na EDA, calculad
 $|\rho|$ de Spearman para as numéricas e V de Cramér corrigido para as categóricas.
 
 **Tabela 12** — Importância por permutação (queda de AP, média ± dp de 5 repetições) e associação
-na EDA (`step6_errors.py`, parte C). As 12 primeiras de 24.
+na EDA (`step6_errors.py`, parte C). As 12 primeiras de 24. A associação foi recalculada no treino com a
+mesma função da EDA. Em `country`, ela dá 0,375 contra 0,373 na Tabela 5 da EDA, porque aqui os
+nulos entram como a categoria `unknown`.
 
 | Posição | Feature | Queda de AP | Associação na EDA | Posição na EDA |
 |--------:|---------|------------:|------------------:|---------------:|
 | 1 | `deposit_type` | 0,0863 ± 0,0032 | V = 0,505 | 1 |
 | 2 | `country` | 0,0762 ± 0,0011 | V = 0,375 | 3 |
-| 3 | `total_of_special_requests` | 0,0621 ± 0,0013 | \|ρ\| = 0,267 | 6 |
+| 3 | `total_of_special_requests` | 0,0621 ± 0,0013 | \|ρ\| = 0,266 | 6 |
 | 4 | `agent` | 0,0447 ± 0,0012 | V = 0,405 | 2 |
 | 5 | `lead_time` | 0,0343 ± 0,0006 | \|ρ\| = 0,337 | 4 |
-| 6 | `customer_type` | 0,0148 ± 0,0010 | V = 0,118 | 10 |
+| 6 | `customer_type` | 0,0148 ± 0,0010 | V = 0,117 | 10 |
 | 7 | `market_segment` | 0,0114 ± 0,0006 | V = 0,275 | 5 |
-| 8 | `previous_bookings_not_canceled` | 0,0046 ± 0,0004 | \|ρ\| = 0,116 | 11 |
+| 8 | `previous_bookings_not_canceled` | 0,0046 ± 0,0004 | \|ρ\| = 0,115 | 11 |
 | 9 | `adr` | 0,0035 ± 0,0003 | \|ρ\| = 0,037 | 18 |
 | 10 | `adults` | 0,0031 ± 0,0003 | \|ρ\| = 0,067 | 15 |
 | 11 | `stays_in_week_nights` | 0,0021 ± 0,0003 | \|ρ\| = 0,035 | 19 |
@@ -737,16 +755,19 @@ na EDA (`step6_errors.py`, parte C). As 12 primeiras de 24.
 /// caption
 **Figura 9** — Importância por permutação das 15 features mais importantes (esquerda) e a mesma
 importância contra a associação com o alvo medida na EDA (direita). Conclusão: os rankings
-concordam (Spearman 0,65 entre os dois, n = 24) e as cinco primeiras são as mesmas nos dois. A
-rede usa `total_of_special_requests` mais do que a associação univariada sugeria. `market_segment`,
+concordam (Spearman 0,65 entre os dois, n = 24) e quatro das cinco primeiras coincidem. A rede
+usa `total_of_special_requests` mais do que a associação univariada sugeria. `market_segment`,
 `distribution_channel` e `hotel` valem menos para a rede do que na EDA.
 ///
 
 Leituras:
 
-- **A rede confirma a EDA no essencial.** As cinco features mais importantes são as cinco
-  primeiras da EDA, mesmo trocando de ordem: depósito, país, agência, antecedência e pedidos
-  especiais (seção 5 da EDA, item 2). A correlação entre os dois rankings é **0,65**.
+- **A rede confirma a EDA no essencial.** **Quatro** das cinco features mais importantes para a
+  rede (depósito, país, agência e antecedência) estão entre as cinco primeiras do ranking da
+  EDA. A quinta da rede, `total_of_special_requests`, é a 6.ª no ranking da EDA, mas já aparecia
+  na síntese da EDA como a numérica de associação negativa mais forte (seção 5 da EDA, item 2). A
+  5.ª da EDA, `market_segment`, cai para o 7.º lugar na rede. A correlação entre os dois rankings
+  é **0,65**.
 - **`market_segment` e `distribution_channel` caem**: V de 0,28 e 0,18 na EDA, e importância de
   0,011 e 0,002 na rede. *Hipótese*: elas são redundantes com `agent` e `deposit_type` (o
   segmento `Groups` coincide em boa parte com *Non Refund*). Permutada uma delas, a rede
@@ -842,7 +863,7 @@ dados de reservas, a capacidade extra da rede é gasta decorando o período de t
 | 4 | Chosen network: layers × units, parameter count, regularization | 173 → 64 (ReLU) → 1 logit; 11.201 parâmetros; *dropout* 0,3 + *early stopping* (paciência 10), sem *weight decay* |
 | 5 | Optimizer, learning rate, batch size, and the epoch where training stopped | Adam, lr $3 \times 10^{-4}$, *batch* 256; parada nas épocas 22, 31, 24, 24 e 30 (melhores pesos restaurados das épocas 12, 21, 14, 14 e 20) |
 | 6 | Network's main test metric (mean ± std over seeds) | AP 0,8283 ± 0,0023 (5 sementes); ROC-AUC 0,8667 ± 0,0022 |
-| 7 | Whether the success criterion was met | **Não**: ganho de +0,0076 de AP sobre a logística, acima de 2 dp (0,0046) mas abaixo do mínimo de 0,01 |
+| 7 | Whether the success criterion was met | **Não**: ganho de +0,0076 de AP sobre a logística, acima de 2 dp (0,0046) mas abaixo do mínimo de 0,01. Contra o melhor baseline (*boosting*), +0,0006, também não |
 | 8 | Subgroup with the largest error and its value | `market_segment = Online TA`: taxa de erro de 34,0% (n = 13.961; FNR 66,3%) |
 
 ### Referências
