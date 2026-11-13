@@ -150,12 +150,11 @@ nav:
   - MLP: exercises/mlp/index.md
   - VAE: exercises/vae/index.md
 
-  # O projeto é UM só, com três entregas ao longo do semestre.
+  # O projeto é UM só, com duas entregas ao longo do semestre (EDA e Classificação).
   - Projeto:
     - projects/index.md
     - 1. EDA: projects/eda/index.md
     - 2. Classificação: projects/classification/index.md
-    - 3. Generativo: projects/generative/index.md
 
   # Remova esta seção inteira quando não precisar mais dos exemplos.
   - Exemplos de uso:

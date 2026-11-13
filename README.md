@@ -24,7 +24,6 @@ docs/
     eda/{index.md,code/,figures/}
     classification/{index.md,code/,figures/}
     regression/{index.md,code/,figures/}
-    generative/{index.md,code/,figures/}
   examples/                    # exemplos de uso do menu (pode ser removido)
 ```
 
@@ -44,8 +43,8 @@ O conjunto abaixo é o das edições recentes; confira o overview da **sua** edi
 pastas em `docs/` junto com a `nav` do `mkdocs.yml`.
 
 - **Exercícios**, individuais: Data, Perceptron, MLP, VAE.
-- **Projeto**, em equipe: um único dataset em três entregas — EDA, Classificação **ou**
-  Regressão, e Generativo.
+- **Projeto**, em equipe: um único dataset em duas entregas — EDA e Classificação (a equipe
+  não fará a entrega Generativo).
 
 O template traz as pastas de classificação e regressão; apague a que a equipe não escolher,
 da pasta e da `nav`.

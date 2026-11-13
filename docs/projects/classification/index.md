@@ -10,7 +10,7 @@ ai_use: "Claude (Anthropic) foi usado para escrever a primeira versão dos nove 
 
 # 2. Classificação — Previsão de cancelamento
 
-!!! abstract "Entrega 2 de 3 do [Projeto](../index.md)"
+!!! abstract "Entrega 2 de 2 do [Projeto](../index.md)"
 
     [Projects → Classification or Regression](https://insper.github.io/ann-dl/2026.2/projects/supervised/){:target='_blank'}
 

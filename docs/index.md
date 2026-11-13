@@ -29,7 +29,6 @@ Quem responde por este repositório. Os **exercícios são individuais**; a equi
 
 - [x] [EDA](projects/eda/index.md)
 - [x] [Classificação](projects/classification/index.md)
-- [ ] Generativo
 
 ## Checklist antes de cada entrega
 

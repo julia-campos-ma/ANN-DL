@@ -4,7 +4,7 @@
 
     [Projects](https://insper.github.io/ann-dl/){:target='_blank'}
 
-O projeto é **um só**, feito em equipe sobre **o mesmo dataset**, e entregue em três partes
+O projeto é **um só**, feito em equipe sobre **o mesmo dataset**, e entregue em duas partes
 ao longo do semestre, cada uma com data e peso próprios.
 
 ## Equipe
@@ -17,13 +17,12 @@ ao longo do semestre, cada uma com data e peso próprios.
 Os nomes se repetem no cabeçalho de cada entrega, para que cada página seja atribuível
 sozinha.
 
-## As três entregas
+## As duas entregas
 
 | # | Entrega | Página |
 |---|---------|--------|
 | 1 | EDA | [EDA](eda/index.md) |
 | 2 | Classificação | [Classificação](classification/index.md) |
-| 3 | Generativo | [Generativo](generative/index.md) |
 
 Datas e pesos são da edição — veja o
 [overview](https://insper.github.io/ann-dl/){:target='_blank'}.
@@ -36,8 +35,8 @@ Datas e pesos são da edição — veja o
 
 ## Dataset
 
-O mesmo dataset atravessa as três entregas — escolhê-lo bem no EDA é o que torna as outras
-duas viáveis.
+O mesmo dataset atravessa as duas entregas — escolhê-lo bem no EDA é o que torna a
+classificação viável.
 
 | | |
 |---|---|
@@ -62,7 +61,6 @@ vazam o desfecho e deriva temporal na taxa de cancelamento — tudo documentado 
 
 - [x] **1. EDA**
 - [x] **2. Classificação**
-- [ ] **3. Generativo**
 
 ## Registro de decisões
 
@@ -81,3 +79,4 @@ vazam o desfecho e deriva temporal na taxa de cancelamento — tudo documentado 
 | 2026-11-10 | Rede final: 173 → 64 (ReLU, *dropout* 0,3) → 1; Adam lr 3e-4, *batch* 256, *early stopping* | Melhor média de 3 sementes entre as 3 primeiras de 24 configurações; redes menores generalizaram melhor para o período seguinte |
 | 2026-11-10 | `previous_cancellations` e `booking_changes` **removidas** do modelo | Ablação na validação: nenhuma das duas perdia mais que 2 dp ao sair (regra fixada antes); a primeira é artefato não estacionário e a segunda vaza a contagem final |
 | 2026-11-10 | Resultado no teste: AP 0,8283 ± 0,0023 contra 0,8207 da logística e 0,8277 do *boosting*; **critério não atingido** (+0,0076) | Teste lido uma única vez, depois de todas as escolhas |
+| 2026-11-13 | O projeto termina na entrega 2: **não haverá a entrega 3 (Generativo)** | Decisão da equipe; a página e o item de menu do Generativo foram removidos do site |
